@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Faculty - University Management System</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar will be loaded here -->
+        <div id="sidebar-container"></div>
+        
+        <!-- Sidebar overlay for mobile -->
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header will be loaded here -->
+            <div id="header-container"></div>
+
+            <div class="page-header">
+                <h1>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    Manage Faculty
+                </h1>
+                <button class="btn btn-primary" onclick="showAddFacultyModal()">
+                    <i class="fas fa-plus"></i>
+                    Add Faculty
+                </button>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="search-filter">
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            class="form-control" 
+                            placeholder="Search faculty..."
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faculty Table -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table" id="faculty-table">
+                            <thead>
+                                <tr>
+                                    <th>Faculty ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
+                                    <th>Qualification</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="faculty-tbody">
+                                <tr>
+                                    <td colspan="6" class="text-center">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Faculty Modal -->
+    <div id="faculty-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Add Faculty</h3>
+                <button class="modal-close" onclick="hideModal('faculty-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="faculty-form">
+                    <input type="hidden" id="faculty-id">
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="faculty-name">Full Name</label>
+                        <input type="text" id="faculty-name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="faculty-email">Email</label>
+                        <input type="email" id="faculty-email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="faculty-password">Password</label>
+                        <input type="password" id="faculty-password" class="form-control">
+                        <small class="form-help">Leave blank to keep current password</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="faculty-faculty-id">Faculty ID</label>
+                        <input type="text" id="faculty-faculty-id" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="faculty-department">Department</label>
+                        <select id="faculty-department" class="form-control form-select" required>
+                            <option value="">Select Department</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="faculty-qualification">Qualification</label>
+                        <input type="text" id="faculty-qualification" class="form-control" placeholder="e.g., Ph.D. in Computer Science" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="hideModal('faculty-modal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveFaculty()">Save Faculty</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/router.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/admin.js"></script>
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', async () => {
+            const user = await protectPage('admin');
+            if (user) {
+                await initializeLayout(user);
+                await initFacultyPage();
+            }
+        });
+    </script>
+</body>
+</html>

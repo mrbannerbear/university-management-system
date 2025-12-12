@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Results - University Management System</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div id="sidebar-container"></div>
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <div class="main-content">
+            <div id="header-container"></div>
+
+            <div class="page-header">
+                <h1><i class="fas fa-chart-bar"></i> Manage Results</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <input type="text" id="search-input" class="form-control" style="flex: 1; min-width: 200px;" placeholder="Search results...">
+                        <select id="filter-semester" class="form-control form-select" style="width: 150px;">
+                            <option value="">All Semesters</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+                            <option value="7">Semester 7</option>
+                            <option value="8">Semester 8</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table" id="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>Student Name</th>
+                                    <th>Course</th>
+                                    <th>Marks</th>
+                                    <th>Grade</th>
+                                    <th>Grade Point</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-tbody">
+                                <tr><td colspan="8" class="text-center">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/router.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const user = await protectPage('admin');
+            if (user) {
+                await initializeLayout(user);
+                await initResultsPage();
+            }
+        });
+    </script>
+</body>
+</html>

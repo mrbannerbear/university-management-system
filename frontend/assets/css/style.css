@@ -1,4 +1,9 @@
-/* CSS Variables - Modern Color Scheme */
+/* Import CSS modules */
+@import url('variables.css');
+@import url('components.css');
+@import url('animations.css');
+
+/* CSS Variables - Modern Color Scheme (Legacy - now in variables.css) */
 :root {
     /* Primary Colors */
     --primary: #4F46E5;           /* Indigo - main brand color */

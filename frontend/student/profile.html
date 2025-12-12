@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - University Management System</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div id="sidebar-container"></div>
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <div class="main-content">
+            <div id="header-container"></div>
+
+            <div class="page-header">
+                <h1><i class="fas fa-user"></i> My Profile</h1>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-id-card"></i> Personal Information</h3>
+                </div>
+                <div class="card-body">
+                    <div class="profile-grid">
+                        <div class="profile-item">
+                            <label>Full Name</label>
+                            <p id="profile-name">Loading...</p>
+                        </div>
+                        <div class="profile-item">
+                            <label>Student ID</label>
+                            <p id="profile-student-id">Loading...</p>
+                        </div>
+                        <div class="profile-item">
+                            <label>Email</label>
+                            <p id="profile-email">Loading...</p>
+                        </div>
+                        <div class="profile-item">
+                            <label>Department</label>
+                            <p id="profile-department">Loading...</p>
+                        </div>
+                        <div class="profile-item">
+                            <label>Current Semester</label>
+                            <p id="profile-semester">Loading...</p>
+                        </div>
+                        <div class="profile-item">
+                            <label>Enrollment Date</label>
+                            <p id="profile-enrollment-date">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-graduation-cap"></i> Academic Performance</h3>
+                </div>
+                <div class="card-body">
+                    <div class="stats-grid">
+                        <div class="stat-card primary">
+                            <div class="stat-icon primary">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="profile-cgpa">0.00</h3>
+                                <p>CGPA</p>
+                            </div>
+                        </div>
+                        <div class="stat-card success">
+                            <div class="stat-icon success">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="profile-courses-completed">0</h3>
+                                <p>Courses Completed</p>
+                            </div>
+                        </div>
+                        <div class="stat-card warning">
+                            <div class="stat-icon warning">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 id="profile-total-credits">0</h3>
+                                <p>Total Credits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/router.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/student.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const user = await protectPage('student');
+            if (user) {
+                await initializeLayout(user);
+                await initProfilePage();
+            }
+        });
+    </script>
+</body>
+</html>

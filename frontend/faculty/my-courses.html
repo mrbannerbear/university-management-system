@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses - University Management System</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div id="sidebar-container"></div>
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <div class="main-content">
+            <div id="header-container"></div>
+
+            <div class="page-header">
+                <h1><i class="fas fa-book-reader"></i> My Courses</h1>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card primary">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3 id="total-assigned-courses">0</h3>
+                        <p>Assigned Courses</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-list"></i> Assigned Courses</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table" id="courses-table">
+                            <thead>
+                                <tr>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Department</th>
+                                    <th>Credits</th>
+                                    <th>Semester</th>
+                                    <th>Students Enrolled</th>
+                                </tr>
+                            </thead>
+                            <tbody id="courses-tbody">
+                                <tr><td colspan="6" class="text-center">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/router.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/faculty.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const user = await protectPage('faculty');
+            if (user) {
+                await initializeLayout(user);
+                await initMyCoursesPage();
+            }
+        });
+    </script>
+</body>
+</html>
