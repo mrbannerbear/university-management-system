@@ -1,0 +1,46 @@
+<div class="sidebar">
+    <div class="sidebar-header">
+        <h2>
+            <i class="fas fa-user-graduate"></i>
+            Student Portal
+        </h2>
+        <p id="student-name">Student</p>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item" data-page="dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="profile.html" class="nav-item" data-page="profile">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+        <a href="results.html" class="nav-item" data-page="results">
+            <i class="fas fa-chart-bar"></i>
+            <span>Results</span>
+        </a>
+        <a href="print-result.html" class="nav-item" data-page="print-result">
+            <i class="fas fa-print"></i>
+            <span>Print Result</span>
+        </a>
+    </nav>
+    
+    <div class="sidebar-footer">
+        <button id="logout-btn" class="btn btn-danger btn-block">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </button>
+    </div>
+</div>
+
+<script>
+    // Highlight active menu item
+    const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        if (item.dataset.page === currentPage) {
+            item.classList.add('active');
+        }
+    });
+</script>
