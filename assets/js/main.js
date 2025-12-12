@@ -226,8 +226,3 @@ function showAlert(message, type = 'success') {
 function confirmAction(message) {
     return confirm(message);
 }
-
-// Export functions for use in other scripts
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { showAlert, confirmAction };
-}

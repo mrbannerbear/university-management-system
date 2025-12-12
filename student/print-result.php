@@ -192,6 +192,6 @@ $cgpa = calculateCGPA($conn, $student_id);
         </div>
     </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </body>
 </html>

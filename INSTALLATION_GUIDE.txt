@@ -1,0 +1,110 @@
+===============================================================
+UNIVERSITY RESULT MANAGEMENT SYSTEM - Quick Installation Guide
+===============================================================
+
+STEP 1: Prerequisites
+---------------------
+✓ XAMPP/WAMP/MAMP installed
+✓ PHP 7.4+ 
+✓ MySQL 5.7+
+✓ Web browser
+
+STEP 2: Setup
+-------------
+1. Copy project folder to web server root:
+   - XAMPP: C:\xampp\htdocs\
+   - WAMP: C:\wamp\www\
+   - MAMP: /Applications/MAMP/htdocs/
+
+2. Start Apache and MySQL servers
+
+3. Import database:
+   - Open phpMyAdmin (http://localhost/phpmyadmin)
+   - Click "Import" tab
+   - Select file: database/schema.sql
+   - Click "Go"
+
+4. Configure database (if needed):
+   - Edit config/database.php
+   - Update DB_USER and DB_PASS if different
+
+STEP 3: Access Application
+--------------------------
+Open browser: http://localhost/university-management-system/
+
+STEP 4: Login with Demo Accounts
+--------------------------------
+ADMIN:
+  Email: admin@university.com
+  Password: admin123
+
+FACULTY:
+  Email: faculty1@university.com
+  Password: faculty123
+
+STUDENT:
+  Email: student1@university.com
+  Password: student123
+
+===============================================================
+FEATURES OVERVIEW
+===============================================================
+
+ADMIN MODULE:
+✓ Dashboard with statistics
+✓ Manage Departments (Add/Edit/Delete)
+✓ Manage Students (CRUD operations)
+✓ Manage Faculty (CRUD operations)
+✓ Manage Courses
+✓ Assign Courses to Faculty
+✓ View & Publish Results
+
+FACULTY MODULE:
+✓ View Assigned Courses
+✓ Enter/Update Student Marks
+✓ Auto Grade Calculation
+✓ View Results
+
+STUDENT MODULE:
+✓ View Profile
+✓ View Semester Results
+✓ View GPA/CGPA
+✓ Print Results
+
+GRADING SYSTEM:
+A+ (90-100): 4.00
+A  (85-89):  3.75
+A- (80-84):  3.50
+B+ (75-79):  3.25
+B  (70-74):  3.00
+B- (65-69):  2.75
+C+ (60-64):  2.50
+C  (55-59):  2.25
+D  (50-54):  2.00
+F  (<50):    0.00
+
+===============================================================
+TROUBLESHOOTING
+===============================================================
+
+Q: Database connection error?
+A: Check MySQL is running and credentials in config/database.php
+
+Q: Login not working?
+A: Ensure database is imported correctly with sample users
+
+Q: Pages showing blank?
+A: Check PHP error logs in XAMPP/WAMP/MAMP logs folder
+
+Q: Styling issues?
+A: Clear browser cache (Ctrl+Shift+Delete)
+
+===============================================================
+SUPPORT
+===============================================================
+
+For detailed documentation, see README.md
+For issues, create a GitHub issue
+
+Made with ❤️ for educational purposes
+===============================================================
