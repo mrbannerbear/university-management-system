@@ -96,29 +96,31 @@ INSERT INTO departments (name, code) VALUES
 ('Electrical Engineering', 'EEE'),
 ('Business Administration', 'BBA');
 
--- Insert Sample Users (password: admin123, faculty123, student123 for all respective users)
--- Password hash for 'admin123'
-INSERT INTO users (name, email, password, role, department_id) VALUES
-('System Admin', 'admin@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', NULL);
+-- Insert Sample Users
+-- All passwords are hashed using PHP password_hash()
+-- Admin password: admin123
+-- Faculty password: faculty123  
+-- Student password: student123
 
--- Password hash for 'faculty123'
 INSERT INTO users (name, email, password, role, department_id) VALUES
-('Dr. John Smith', 'faculty1@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'faculty', 1),
-('Dr. Sarah Johnson', 'faculty2@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'faculty', 2),
-('Prof. Michael Brown', 'faculty3@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'faculty', 3);
+('System Admin', 'admin@university.com', '$2y$10$2YstZVCAvvYy8VthsPiB/uA3JgvpfKT8XXCT/zXrZ0b5yPZrncurW', 'admin', NULL);
 
--- Password hash for 'student123'
 INSERT INTO users (name, email, password, role, department_id) VALUES
-('Alice Williams', 'student1@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 1),
-('Bob Davis', 'student2@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 1),
-('Carol Martinez', 'student3@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 2),
-('David Garcia', 'student4@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 2),
-('Emma Rodriguez', 'student5@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 3),
-('Frank Wilson', 'student6@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 3),
-('Grace Taylor', 'student7@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 1),
-('Henry Anderson', 'student8@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 2),
-('Isabel Thomas', 'student9@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 3),
-('Jack Martinez', 'student10@university.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student', 1);
+('Dr. John Smith', 'faculty1@university.com', '$2y$10$3tSO2a8ZijkIJRV3zc93zuAu3n5SENxiMIvxhRQLJoUbrFwYV9r0K', 'faculty', 1),
+('Dr. Sarah Johnson', 'faculty2@university.com', '$2y$10$3tSO2a8ZijkIJRV3zc93zuAu3n5SENxiMIvxhRQLJoUbrFwYV9r0K', 'faculty', 2),
+('Prof. Michael Brown', 'faculty3@university.com', '$2y$10$3tSO2a8ZijkIJRV3zc93zuAu3n5SENxiMIvxhRQLJoUbrFwYV9r0K', 'faculty', 3);
+
+INSERT INTO users (name, email, password, role, department_id) VALUES
+('Alice Williams', 'student1@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 1),
+('Bob Davis', 'student2@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 1),
+('Carol Martinez', 'student3@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 2),
+('David Garcia', 'student4@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 2),
+('Emma Rodriguez', 'student5@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 3),
+('Frank Wilson', 'student6@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 3),
+('Grace Taylor', 'student7@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 1),
+('Henry Anderson', 'student8@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 2),
+('Isabel Thomas', 'student9@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 3),
+('Jack Martinez', 'student10@university.com', '$2y$10$vvs6VL1m6diXKMDQEDMjtOXJCzltVnZL5tkpbdAb6HLzxAhY0j1Xe', 'student', 1);
 
 -- Insert Faculty Members
 INSERT INTO faculty (user_id, name, department_id) VALUES
