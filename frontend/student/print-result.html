@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Result - University Management System</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            .print-container { 
+                max-width: 100%; 
+                box-shadow: none;
+                margin: 0;
+            }
+            body { background: white; }
+            .dashboard, .sidebar { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div id="sidebar-container" class="no-print"></div>
+        <div id="sidebar-overlay" class="sidebar-overlay no-print"></div>
+
+        <div class="main-content">
+            <div id="header-container" class="no-print"></div>
+
+            <div class="page-header no-print">
+                <h1><i class="fas fa-print"></i> Print Result</h1>
+                <button class="btn btn-primary" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print
+                </button>
+            </div>
+
+            <div class="card no-print">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-label">Select Semester</label>
+                        <select id="semester-select" class="form-control form-select">
+                            <option value="">Select a semester...</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+                            <option value="7">Semester 7</option>
+                            <option value="8">Semester 8</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="print-container" class="print-container" style="display: none;">
+                <div class="card">
+                    <div class="card-body">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <h1 style="color: var(--primary); margin-bottom: 0.5rem;">University Management System</h1>
+                            <h2 style="color: var(--text-secondary); font-weight: normal;">Student Result Sheet</h2>
+                        </div>
+
+                        <div style="border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); padding: 1.5rem 0; margin-bottom: 2rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div><strong>Name:</strong> <span id="print-name"></span></div>
+                                <div><strong>Student ID:</strong> <span id="print-student-id"></span></div>
+                                <div><strong>Department:</strong> <span id="print-department"></span></div>
+                                <div><strong>Semester:</strong> <span id="print-semester"></span></div>
+                            </div>
+                        </div>
+
+                        <table class="table" style="margin-bottom: 2rem;">
+                            <thead>
+                                <tr>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Credits</th>
+                                    <th>Marks</th>
+                                    <th>Grade</th>
+                                    <th>Grade Point</th>
+                                </tr>
+                            </thead>
+                            <tbody id="print-results-tbody">
+                            </tbody>
+                            <tfoot>
+                                <tr style="font-weight: bold; background: var(--bg-hover);">
+                                    <td colspan="2">Total</td>
+                                    <td id="print-total-credits"></td>
+                                    <td colspan="2">GPA</td>
+                                    <td id="print-gpa"></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <div style="margin-top: 3rem; text-align: center; color: var(--text-muted);">
+                            <p>Generated on: <span id="print-date"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/router.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/student.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const user = await protectPage('student');
+            if (user) {
+                await initializeLayout(user);
+                await initPrintResultPage();
+            }
+        });
+    </script>
+</body>
+</html>

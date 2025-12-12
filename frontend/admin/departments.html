@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Departments - University Management System</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div id="sidebar-container"></div>
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <div class="main-content">
+            <div id="header-container"></div>
+
+            <div class="page-header">
+                <h1><i class="fas fa-building"></i> Manage Departments</h1>
+                <button class="btn btn-primary" onclick="showAddDepartmentModal()">
+                    <i class="fas fa-plus"></i> Add Department
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <input type="text" id="search-input" class="form-control" placeholder="Search departments...">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-container">
+                        <table class="table" id="departments-table">
+                            <thead>
+                                <tr>
+                                    <th>Department Code</th>
+                                    <th>Department Name</th>
+                                    <th>Head of Department</th>
+                                    <th>Total Students</th>
+                                    <th>Total Faculty</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="departments-tbody">
+                                <tr><td colspan="6" class="text-center">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Modal -->
+    <div id="department-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Add Department</h3>
+                <button class="modal-close" onclick="hideModal('department-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="department-form">
+                    <input type="hidden" id="department-id">
+                    <div class="form-group">
+                        <label class="form-label">Department Code</label>
+                        <input type="text" id="department-code" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Department Name</label>
+                        <input type="text" id="department-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Head of Department</label>
+                        <input type="text" id="department-hod" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea id="department-description" class="form-control" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="hideModal('department-modal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveDepartment()">Save Department</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/router.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const user = await protectPage('admin');
+            if (user) {
+                await initializeLayout(user);
+                await initDepartmentsPage();
+            }
+        });
+    </script>
+</body>
+</html>
