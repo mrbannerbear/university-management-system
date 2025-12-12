@@ -1,0 +1,426 @@
+/* CSS Animations */
+
+/* Fade In */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+/* Slide In from Left (for sidebar) */
+@keyframes slideInLeft {
+    from { 
+        transform: translateX(-100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+/* Slide In from Right (for toast notifications) */
+@keyframes slideInRight {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+/* Slide In Up (for cards/modals) */
+@keyframes slideInUp {
+    from { 
+        transform: translateY(20px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+/* Slide In Down (for dropdowns) */
+@keyframes slideInDown {
+    from { 
+        transform: translateY(-20px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+/* Scale In (for buttons, icons, modals) */
+@keyframes scaleIn {
+    from { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* Scale Out */
+@keyframes scaleOut {
+    from { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+    to { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    }
+}
+
+/* Pulse (for notifications, attention) */
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1); 
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.05); 
+        opacity: 0.8;
+    }
+}
+
+/* Skeleton Loading/Shimmer */
+@keyframes shimmer {
+    0% { 
+        background-position: -200% 0; 
+    }
+    100% { 
+        background-position: 200% 0; 
+    }
+}
+
+/* Spin (for loading spinners) */
+@keyframes spin {
+    from { 
+        transform: rotate(0deg); 
+    }
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+/* Bounce */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Shake (for error states) */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Fade Out */
+@keyframes fadeOut {
+    from { 
+        opacity: 1; 
+    }
+    to { 
+        opacity: 0; 
+    }
+}
+
+/* Slide Out Left */
+@keyframes slideOutLeft {
+    from { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+    to { 
+        transform: translateX(-100%); 
+        opacity: 0; 
+    }
+}
+
+/* Slide Out Right */
+@keyframes slideOutRight {
+    from { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+    to { 
+        transform: translateX(100%); 
+        opacity: 0; 
+    }
+}
+
+/* Slide Out Up */
+@keyframes slideOutUp {
+    from { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+    to { 
+        transform: translateY(-20px); 
+        opacity: 0; 
+    }
+}
+
+/* Slide Out Down */
+@keyframes slideOutDown {
+    from { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+    to { 
+        transform: translateY(20px); 
+        opacity: 0; 
+    }
+}
+
+/* Zoom In */
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Zoom Out */
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Flip In X */
+@keyframes flipInX {
+    from {
+        transform: perspective(400px) rotateX(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+/* Flip In Y */
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: perspective(400px) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* Rotate In */
+@keyframes rotateIn {
+    from {
+        transform: rotate(-180deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Progress Bar Animation */
+@keyframes progress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Glow/Highlight Animation */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(79, 70, 229, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(79, 70, 229, 0.8);
+    }
+}
+
+/* Typing Animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Blink Caret */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: currentColor;
+    }
+}
+
+/* Gradient Animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Float Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Swing Animation */
+@keyframes swing {
+    20% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-10deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Wobble Animation */
+@keyframes wobble {
+    0%, 100% {
+        transform: translateX(0%);
+    }
+    15% {
+        transform: translateX(-10%) rotate(-5deg);
+    }
+    30% {
+        transform: translateX(8%) rotate(3deg);
+    }
+    45% {
+        transform: translateX(-5%) rotate(-3deg);
+    }
+    60% {
+        transform: translateX(3%) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-2%) rotate(-1deg);
+    }
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    10%, 30% {
+        transform: scale(1.1);
+    }
+    20%, 40% {
+        transform: scale(0.9);
+    }
+}
+
+/* Utility Classes for Animations */
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease;
+}
+
+.animate-slideInUp {
+    animation: slideInUp 0.5s ease;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.5s ease;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.5s ease;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.3s ease;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.animate-shake {
+    animation: shake 0.5s ease;
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Delay Classes */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Duration Classes */
+.duration-fast { animation-duration: 0.3s; }
+.duration-normal { animation-duration: 0.5s; }
+.duration-slow { animation-duration: 1s; }
