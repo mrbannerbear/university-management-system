@@ -23,7 +23,7 @@ async function login(email, password) {
         if (response.success) {
             const user = response.data;
             // Redirect based on role
-            window.location.href = `../${user.role}/dashboard.html`;
+            window.location.href = `${user.role}/dashboard.html`;
         }
         return response;
     } catch (error) {
