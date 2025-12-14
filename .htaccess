@@ -1,6 +1,7 @@
 # Enable rewrite engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /university-management-system/
     
     # Redirect root to frontend (works with any base path)
     RewriteRule ^$ frontend/index.html [L,R=301]
