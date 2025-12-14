@@ -1,22 +1,18 @@
 # Enable rewrite engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /
     
-    # Redirect root to frontend
-    RewriteRule ^$ /frontend/index.html [L]
-    RewriteRule ^index\.php$ /frontend/index.html [L,R=301]
+    # Redirect root to frontend (works with any base path)
+    RewriteRule ^$ frontend/index.html [L,R=301]
+    RewriteRule ^index\.php$ frontend/index.html [L,R=301]
     
-    # Allow API requests to pass through
-    RewriteCond %{REQUEST_URI} ^/api/
+    # Allow direct access to existing files and directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
     
-    # Allow frontend files to pass through
-    RewriteCond %{REQUEST_URI} ^/frontend/
-    RewriteRule ^ - [L]
-    
-    # Allow database folder to pass through
-    RewriteCond %{REQUEST_URI} ^/database/
+    # API requests - ensure PHP processes them
+    RewriteCond %{REQUEST_URI} /api/
     RewriteRule ^ - [L]
 </IfModule>
 
