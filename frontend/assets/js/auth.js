@@ -48,6 +48,19 @@ async function logout() {
 }
 
 /**
+ * Setup logout button
+ */
+function setupLogoutButton() {
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            await logout();
+        });
+    }
+}
+
+/**
  * Protect page - redirect if not logged in
  */
 async function protectPage(requiredRole = null) {
@@ -91,19 +104,6 @@ function initLoginPage() {
             } catch (error) {
                 // Error already handled in login function
             }
-        });
-    }
-}
-
-/**
- * Setup logout button
- */
-function setupLogoutButton() {
-    const logoutBtn = document.getElementById('logout-btn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', async (e) => {
-            e.preventDefault();
-            await logout();
         });
     }
 }

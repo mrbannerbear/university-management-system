@@ -196,16 +196,19 @@ function initCommonUI() {
 /**
  * Load component from HTML file
  */
-async function loadComponent(elementId, componentPath) {
+async function loadComponent(containerId, componentPath) {
     try {
         const response = await fetch(componentPath);
         const html = await response.text();
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.innerHTML = html;
+        const container = document. getElementById(containerId);
+        if (container) {
+            container.innerHTML = html;
+            
+            // Setup logout button after sidebar is loaded
+            setupLogoutButton();
         }
     } catch (error) {
-        console.error('Error loading component:', error);
+        console.error('Failed to load component:', error);
     }
 }
 
