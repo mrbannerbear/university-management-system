@@ -30,7 +30,7 @@ STEP 2: Setup
 
 STEP 3: Access Application
 --------------------------
-Open browser: http://localhost/university-management-system/
+Open browser: http://localhost/university-management-system/frontend/index.html
 
 STEP 4: Login with Demo Accounts
 --------------------------------
