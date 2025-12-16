@@ -1,5 +1,5 @@
 // API Helper Functions
-const API_BASE = '../api';
+const API_BASE = '/university-management-system/api';
 
 /**
  * Make an API request

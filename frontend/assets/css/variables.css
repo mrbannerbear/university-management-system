@@ -117,14 +117,3 @@
     --gradient-warning: linear-gradient(135deg, var(--warning) 0%, #D97706 100%);
     --gradient-danger: linear-gradient(135deg, var(--danger) 0%, #DC2626 100%);
 }
-
-/* Dark Mode Variables (Optional - for future implementation) */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-main: #0F172A;
-        --bg-card: #1E293B;
-        --text-primary: #F1F5F9;
-        --text-secondary: #CBD5E1;
-        --border: #334155;
-    }
-}
